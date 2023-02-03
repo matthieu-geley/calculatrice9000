@@ -112,6 +112,7 @@ def egale():
 def ouvrirHistorique():
 	historique = Toplevel()
 	historique.title("Historique")
+	global historique_label
 	historique_label = Label(historique, text="Pas d'historique.", font=("arial", 15))
 	historique_label.grid(row=1)
 	historique.geometry("300x300")
