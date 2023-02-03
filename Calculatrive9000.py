@@ -110,24 +110,25 @@ def egale():
 		Entree_var.set("Erreur")
 
 def ouvrirHistorique():
-	history = Toplevel()
-	history.title("Historique")
-	history_label = Label(history, text="Pas d'historique.", font=("arial", 15))
-	history_label.grid(row=1)
-	history.geometry("300x300")
-	clear_history_btn = ttk.Button(history, text="Effacer", command=viderHistorique)
-	clear_history_btn.grid(row=0, column=0, pady=5)
-	close_btn = ttk.Button(history, text="Fermer", command=history.destroy)
-	close_btn.grid(row=0, column=1)
+	historique = Toplevel()
+	historique.title("Historique")
+	historique_label = Label(historique, text="Pas d'historique.", font=("arial", 15))
+	historique_label.grid(row=1)
+	historique.geometry("300x300")
+	nettoyer_historique_btn = ttk.Button(historique, text="Effacer", command=viderHistorique)
+	nettoyer_historique_btn.grid(row=0, column=0, pady=5)
+	fermer_btn = ttk.Button(historique, text="Fermer", command=historique.destroy)
+	fermer_btn.grid(row=0, column=1)
 	file = open("Historique.txt", 'r')
 	txt = file.read()
-	history_label.config(text=txt, font=("arial", 15))
+	historique_label.config(text=txt, font=("arial", 15))
 	file.close()
-	history.mainloop()
+	historique.mainloop()
 
 def viderHistorique():
 	f = open("historique.txt", "w")
 	f.close()
+	historique_label.config(text="", font=("arial", 15))
 
 def supprimerHistorique():
 	os.remove("historique.txt")
